@@ -1,0 +1,224 @@
+{% extends 'main.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+{% block body_block %}
+
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="h4">
+                        <h4 class="h4">Product Details</h4>
+                    </div>
+
+                    <div class="container-fluid lg-mx-5 ps-5 my-5  justify-content-center">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">{{ productDetail.name }} Details</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3" style="max-width: 18rem; margin-right:20px;">
+                                            <div class="card-header">ID</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ productDetail.id }}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="card text-bg-success mb-3 ms-5" style="max-width: 18rem;margin-left:20px;">
+                                            <div class="card-header">NAME</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ productDetail.name }}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="card text-bg-success mb-3 ms-5" style="max-width: 18rem;margin-left:20px;">
+                                            <div class="card-header">ISSUE DATE</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ productDetail.date }}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3" style="max-width: 20rem; margin-right:20px;">
+                                            <div class="card-header">CATEGORIES</div>
+                                            <div class="card-body">
+                                               {% for category in productDetail.catego.all %}
+                                                <h5 class="card-title">{{ category.name }}</h5>
+                                               {% endfor %} 
+                                            </div>
+                                        </div>
+                                        <div class="card text-bg-success mb-3 ms-5" style="max-width: 18rem;margin-left:20px;">
+                                            <div class="card-header">SUB CATEGORIES</div>
+                                            <div class="card-body">
+                                                {% for subcategory in productDetail.subcatego.all %}
+                                                <h5 class="card-title">{{ subcategory.name }}</h5>
+                                                {% endfor %} 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3 w-100 " style="margin-right:20px;">
+                                            <div class="card-header">ABAILABLE SIZES</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <ul>
+                                                        {% if productDetail.s_size == True %}
+                                                        <li>Small</li>
+                                                        {% else %}
+                                                        <li>-</li>
+                                                        {% endif %}
+                                                        {% if productDetail.m_size == True %}
+                                                        <li>Medium</li>
+                                                        {% else %}
+                                                        <li>-</li>
+                                                        {% endif %}
+                                                        {% if productDetail.l_size == True %}
+                                                        <li>Large</li>
+                                                        {% else %}
+                                                        <li>-</li>
+                                                        {% endif %}
+                                                        {% if productDetail.xl_size == True %}
+                                                        <li>Extra Large</li>
+                                                        {% else %}
+                                                        <li>-</li>
+                                                        {% endif %}
+                                                        {% if productDetail.xxl_size == True %}
+                                                        <li>More Extra Large</li>
+                                                        {% else %}
+                                                        <li>-</li>
+                                                        {% endif %}
+                                                        
+                                                    </ul>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3 w-100" style="margin-right:20px;">
+                                            <div class="card-header">PRICES</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <ul>
+                                                        <li><del>{{ productDetail.old_price }}</del></li>
+                                                        <li>{{ productDetail.new_price }}</li>
+                                                        <li>{{ productDetail.discount }}</li>
+                                                    </ul>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                       <div class="card text-bg-success mb-3 w-100 " style="margin-right:20px;">
+                                            
+                                            <div class="card-body">
+                                                <img src="/{{ productDetail.image }}" class="image-container" width="200" height="200">
+                                                <img src="/{{ productDetail.l_img }}" class="image-container" width="200" height="200">
+                                            </div> 
+                                        </div> 
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                       <div class="card text-bg-success mb-3 w-100 " style="margin-right:20px;">
+                                            
+                                            <div class="card-body">
+                                                <img src="/{{ productDetail.r_img }}" class="image-container" width="200" height="200">
+                                                <img src="/{{ productDetail.f_img }}" class="image-container" width="200" height="200">
+                                            </div> 
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3 w-100" style="margin-right:20px;">
+                                            <div class="card-header">DETAILS</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <ul>
+                                                        <li>{{ productDetail.detail }}</li>
+                                                        
+                                                    </ul>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3 w-100" style="margin-right:20px;">
+                                            <div class="card-header">REMARKS</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <ul>
+                                                        <li>{{ productDetail.remark }}</li>   
+                                                    </ul>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="btn btn-success">Back</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+{% endblock %}
+</html>

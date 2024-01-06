@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+<body>
+    
+    {% block body_block %}
+    {% load static %}
+        <div class="container empty_div"></div><!-- empty div -->
+        <div id="1_sec" style="background-image:url({% static '/images/logo/backgroundimages/1_homesliderbg.jpg' %});background-size: cover; background-attachment: fixed;">
+            <div class="container py-5">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for adv_data in adv_list %}
+                            {% for adv_category in adv_data.category.all %}
+                            {% for adv_subcategory in adv_data.sub_category.all %}
+                                {% if adv_category.name == 'sliders' and adv_subcategory.name == 'home_sliders'  %}
+                                        {% if adv_data.adv_id == 1 %}
+                                            <div class="carousel-item active">
+                                                <img src="/{{ adv_data.image }}"  width="100%" height="500px" class="d-block w-100" alt="...">
+                                                <div class="carousel-caption text-center label">
+                                                    <h3>
+                                                        <h1>{{ adv_data.first_caption }} </h1>
+                                                        <h1>{{ adv_data.second_caption}} </h1>   
+                                                    </h3>
+                                                    <p>{{ adv_data.third_caption}}.</p>
+                                                    <a href="{% url 'detail' adv_data.product_id %}" class="btn btn-outline-dark">Shop Now!</a>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+
+                                        {% if adv_data.adv_id == 2 %}
+                                            <div class="carousel-item"> 
+                                                <img src="/{{ adv_data.image }}" width="100%" height="500px" class="d-block w-100" alt="...">
+                                                <div class="carousel-caption text-center label">
+                                                    <h1>{{ adv_data.first_caption }} </h1>
+                                                    <h1>{{ adv_data.second_caption}} </h1> 
+                                                    <p>{{ adv_data.third_caption}}.</p>
+                                                    <a href="{% url 'detail' adv_data.product_id %}" class="btn btn-outline-dark">Shop Now!</a>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                
+                                        {% if adv_data.adv_id == 3 %}
+                                        <div class="carousel-item"> 
+                                            <img src="/{{ adv_data.image }}" width="100%" height="500px" class="d-block w-100" alt="...">
+                                            <div class="carousel-caption text-center label">
+                                                <h1>{{ adv_data.first_caption }} </h1>
+                                                <h1>{{ adv_data.second_caption}} </h1>
+                                                <p>{{ adv_data.third_caption}}.</p>
+                                                <a href="{% url 'detail' adv_data.product_id %}" class="btn btn-outline-dark">Shop Now!</a>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if adv_data.adv_id == 4 %}
+                                        <div class="carousel-item"> 
+                                            <img src="/{{ adv_data.image }}" width="100%" height="500px" class="d-block w-100" alt="...">
+                                            <div class="carousel-caption text-center label">
+                                                <h1>{{ adv_data.first_caption }} </h1>
+                                                <h1>{{ adv_data.second_caption}} </h1>
+                                                <p>{{ adv_data.third_caption}}.</p>
+                                                <a href="{% url 'detail' adv_data.product_id %}" class="btn btn-outline-dark">Shop Now!</a>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if adv_data.adv_id == 5 %}
+                                        <div class="carousel-item"> 
+                                            <img src="/{{ adv_data.image }}" width="100%" height="500px" class="d-block w-100" alt="...">
+                                            <div class="carousel-caption text-center label">
+                                                <h1>{{ adv_data.first_caption }} </h1>
+                                                <h1>{{ adv_data.second_caption}} </h1>
+                                                <p>{{ adv_data.third_caption}}.</p>
+                                                <a href="{% url 'detail' adv_data.product_id %}" class="btn btn-outline-dark">Shop Now!</a>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                       
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                </div>
+            </div>
+        </div><!-- slider section -->
+
+        <section>
+           
+            <div id="2_sec" class="pb-5">
+                <div class="d-flex justify-content-center shadow-sm">
+                    <h2 class="h2 text-center" id="main_h_1">DEALS YOU DON'T WANT TO MISS</h2>
+                </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                {% for product_data in product_list  %}
+                                {% for category in product_data.catego.all %}
+                                {% for sub_category  in product_data.subcatego.all  %}
+                                {% if category.name == 'home' %}
+                                {% if sub_category.name == 'don\'t_want_to_miss' %}
+                                    <div class="card col-12 col-md-6 col-lg-3 shadow-sm" id="card_one" style="background-image: url('/{{ product_data.image }}');">
+                                        {% if product_data.discount != 0 %}
+                                        <h4 class="dis">{{ product_data.discount }}%<i> </i>OFF</h3>
+                                        {% endif %}
+
+                                        <h2 class="card name_card">{{ product_data.name }}</h2>
+                                        <a href="{% url 'detail' product_data.id %}" class="dwtm_btn">Details</a>
+                                    </div>
+                                {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+            </div>
+            
+        </section><!--section two or image section-->
+
+        <section>
+            <div id="sec_3" class="container-fluid py-5" style="background-image:url({% static '/images/logo/backgroundimages/2_bestsellerbg.jpg' %}); background-size: cover; background-attachment: fixed;">
+                <div>
+                    <h2 class="h2 text-center" id="main_h_2">THE BEST SELLERS</h2>
+                </div> 
+                <div class="container my-5">
+                    <div class="row">
+                                {% for product_data in product_list %}
+                                {% for category in product_data.catego.all %}
+                                {% for sub_category in product_data.subcatego.all %}
+                                {% if category.name == 'home' %}
+                                {% if sub_category.name == 'best sellers' %}
+                                <div id="fst-card" class="col-6 col-md-12 col-lg-3" >
+                        
+                              <table class="table">
+                                <tr>
+                                <td>
+                                    <img class="img bs_img" src="/{{ product_data.image }}" width="150px" height="250px" >
+                                    <h6 class="product_label">{{ product_data.name }}</h6>
+                                    <a href="{% url 'detail' product_data.id %}" class="bs_btn">More</a>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                        </div>
+
+                                
+                                {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                                {% endfor %}
+                           
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </section><!-- section three -->
+
+        <section>
+            <div id="sec_4" class="container-fluid py-5">
+                    <div>
+                        <h2 class="h2 text-center my-5" id="main_h_3">THE MOST INTEREST ITEMS</h2>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            {% for product_data in product_list %}
+                            {% for category in product_data.catego.all %}
+                            {% for sub_category in product_data.subcatego.all %}
+                            {% if category.name == 'home' and sub_category.name == 'high-interest' %}
+                
+                            <div id="fst-img" class="col-6 col-md-4 col-lg-3">
+                                <div id="img-div">
+                                    <a href="{% url 'detail' product_data.id %}" id="img_btn-1"><img id="img-1" src="/{{ product_data.image }}" width="150px" height="150px"></a>
+                                </div>
+                                <div id="label-div">
+                                    <a href="{% url 'detail' product_data.id %}" id="img_label-1" class="btn btn-outline-dark">
+                                        <h5>{{ product_data.name}}</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                            {% endfor %}
+                        </div>
+                    </div>
+            </div>
+        </section><!-- section four-->
+
+        <section id="new_arrival">
+            <div id="sec_5" class="container py-5 my-5">
+                <div>
+                    <h2 class="h2 text-center my-5" id="main_h_4">NEW ARRIVALS</h2>
+                </div>
+                <div class="row  my-5">
+                    {% for product_data in product_list %}
+                    {% for category in product_data.catego.all %}
+                    {% for sub_category in product_data.subcatego.all %}
+                    {% if category.name == 'home' and sub_category.name == 'new arrivals' %}
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <div class="card">
+                            <img src="/{{ product_data.image }}">
+                        </div>
+                        <div id="narr_label">
+                         <a href="{% url 'detail' product_data.id %}" class="narr_b">
+                             <h5>{{ product_data.name}}</h5>
+                        </a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+            
+        </section><!-- section five-->
+
+    {% endblock body_block%}
+
+</body>

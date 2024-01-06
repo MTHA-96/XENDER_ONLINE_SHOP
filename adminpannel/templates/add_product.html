@@ -1,0 +1,148 @@
+{% extends 'main.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+{% block body_block %}
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="h4">
+                        <h4 class="h4">Upload New Products</h4>
+                    </div>
+
+                    <div class="container-fluid lg-mx-5 ps-5 my-5  justify-content-center">
+                        <form method="post" action="/administrator/add_product/" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                                <input type="text" name="product_name"  class="form-control" placeholder="Name">
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                                <input type="date" name="date" class="form-control" placeholder="Date">
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+
+                                <!-- <input type="text" name="category" class="form-control" placeholder="Category"> -->
+
+                                <select class="form-select" id="inputGroupSelect01" name="category">
+                                    {% for category in cate %}
+                                        <option value="{{ category.id }}"> {{ category.name }}</option>
+                                    {% endfor %}
+                                    
+                                    
+                                </select>
+
+
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                                <!-- <input type="text" name="sub_category" class="form-control" placeholder="Sub Category"> -->
+
+                                <select class="form-select" id="inputGroupSelect01" name="sub_category">
+                                    {% for subcategory in subcate %}
+                                        <option value="{{ subcategory.id }}"> {{ subcategory.name }}</option>
+                                    {% endfor %}
+                                    
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                              <textarea placeholder="Detail" name="detail" rows="4" cols="50" class="form-control"></textarea>
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                               <textarea placeholder="Remark" name="remark" rows="4" cols="50" class="form-control"></textarea>
+                                                                
+                            </div>
+
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block">
+                                <div class="col-12 d-flex ">
+                                    <label style="margin-left:39px;">S</label>
+                                    <label style="margin-left:72px;">M</label>
+                                    <label style="margin-left:50px;">LG</label>
+                                    <label style="margin-left:40px;">XL</label>
+                                    <label style="margin-left:60px">XXL</label>
+                                </div>
+                                <div class="col-12 col-lg-5 col-md-4 form-check-inline">
+                                    
+                                    <input type="checkbox" name="small" class="mx-5">
+                                    <input type="checkbox" name="medium" class="mx-4">
+                                    <input type="checkbox" name="large" class="mx-4">
+                                    <input type="checkbox" name="extra_large"  class="mx-4">
+                                    <input type="checkbox" name="more_extra_large"  class="mx-5" value="more_extra_large">
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-4 d-inline-flex">
+                                <input type="number" name="old_price" class="form-control mx-3" placeholder="Old Price">
+                                <input type="number" name="new_price" class="form-control mx-3" placeholder="New Price">
+                                <input type="number" name="discount" class="form-control mx-3" placeholder="Discount">
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                                <input type="file" name="fst_img" class="form-control my-4" placeholder="Insert Image">
+                                <input type="file" name="sec_img" class="form-control my-4" placeholder="Insert Image">
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-4 d-inline-block my-4 ">
+                                <input type="file" name="trd_img" class="form-control my-4" placeholder="Insert Image">
+                                <input type="file" name="fth_img" class="form-control my-4" placeholder="Insert Image">
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block">
+                                <img src="img/undraw_profile.svg" width="150px" height="100px" class="img-fluid">
+                                <img src="img/undraw_profile_1.svg"  width="150px" height="100px" class="img-fluid">
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block">
+                                <img src="img/undraw_profile_3.svg" width="150px" height="100px" class="img-fluid">
+                                <img src="img/undraw_profile_2.svg"  width="150px" height="100px" class="img-fluid">
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-4 d-inline-block my-4">
+                                <button class="btn btn-outline-danger">CANCLE</button>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-4 d-inline-block my-4">
+                                <button class="btn btn-secondary">UPLOAD</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+
+</html>

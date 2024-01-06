@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+<body>
+    {% load static %}  
+    {% block body_block %}
+   
+    <!-- this is the navbar part -->
+
+    <div class="container empty_div"></div><!-- empty div -->
+
+   <section>
+        <div class="container-fluid bg-secondary pt-4 py-5">
+            <div class="container">
+                <div class="card w-100 invoice">
+                    <div class="card-body">
+                        <h3 class="h3 justify-content-center">INVOICE </h3>
+                    </div>
+                    <div class="tbl">
+
+                        <table class="table">
+                            <tr>
+                                <th>ID</th>
+                                <th>NAME</th>
+                                <th>QUANTITY</th>
+                                <th>UNITPRICE</th>
+                                <th>TOTALPRICE</th>
+                            </tr>
+                        {% for order in order_list %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ order.name }}</td>
+                                <td>{{ order.quan }}</td>
+
+                              
+                                    <td>{{ order.unit_price}}</td>
+                                        
+                                        
+                                        
+                               
+                                <td>{{ order.price }}</td>
+                            </tr>
+                        {% endfor %}
+                            <tr class="ftr">
+                                <td colspan="3">TOTAL</td>
+                                <td>UNIT:{{ total_q }}</td>
+                                <td>AMOUNT:{{ total_p }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card w-100 my-3 py-5 ">
+                    <form method="post" action="/user/payment/">
+                        {% csrf_token %}
+                            <div class="card-body">
+                                <h3 class="h3 justify-content-center">PAYMENT </h3>
+                            </div>
+                            <div class="row pay_form">
+                                <div class="col-12 col-md-6 col-lg-6 px-5">
+                                    <label for="inputPassword5" class="form-label">FIRST NAME</label>
+                                    <input type="text" id="inputPassword5" name="fst_name" class="form-control" aria-labelledby="passwordHelpBlock">
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6 px-5">
+                                    <label for="inputPassword5" class="form-label">LAST NAME</label>
+                                    <input type="text" id="inputPassword5" name="lst_name" class="form-control" aria-labelledby="passwordHelpBlock">
+                                    
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-6 px-5">
+                                    <label for="inputPassword5" class="form-label">E-MAIL</label>
+                                    <div class="input-group">
+                                        <input type="email" id="inputPassword5" name="email" class="form-control" aria-labelledby="passwordHelpBlock">
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-6 px-5">
+                                    <label for="inputPassword5" class="form-label">HOT-LINE</label>
+                                    <div class="input-group">
+                                    <select class="form-select" name="country_code">
+                                        <option selected value="+95">Myanmar (+95)</option>
+                                        <option value="+44">UK (+44)</option>
+                                        <option value="+91">India (+91)</option>
+                                            <!-- Add more country options as needed -->
+                                    </select>
+                                    <input type="tel" id="inputPassword5" name="phone" class="form-control" aria-labelledby="passwordHelpBlock">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-6 px-5">
+                                    <label for="inputPassword5"  class="form-label">ADDRESS</label>
+                                    <textarea class="form-control" name="address"></textarea>
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-6 px-5">
+                                    <label for="inputPassword5" class="form-label">CITY</label>
+                                    <input type="text" id="inputPassword5" name="city" class="form-control" aria-labelledby="passwordHelpBlock">
+
+                                </div>
+
+                                <div class="col-12 col-md-6 col-lg-6 px-5">
+                                    <label for="inputPassword5" class="form-label d-flex">PAYMENT METHOD</label>
+                                    <!-- <div class="btn-group" role="group" aria-label="Basic radio toggle button group"> -->
+                                        <input type="radio" class="btn-check" name="payment" id="btnradio1" autocomplete="off" value="visa" checked>
+                                        <label class="btn btn-outline-dark" for="btnradio1"><img src="static/images/products/index.jpg" width="50px" height="35px"/></label>
+                                      
+                                        <input type="radio" class="btn-check" value="master"name="payment" id="btnradio2" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="btnradio2"><img src="static/images/products/index.jpg" width="50px" height="35px"/></label>
+                                      
+                                        <input type="radio" class="btn-check" value="cash_on_delivery" name="payment" id="btnradio3" autocomplete="off">
+                                        <label class="btn btn-outline-dark" for="btnradio3"><img src="static/images/products/index.jpg" width="50px" height="35px"/></label>
+
+                                        <!-- <label for="inputPassword5" class="form-label">CITY</label> -->
+                                        <input type="text" id="inputPassword5" name="card_no" class="form-control" aria-labelledby="passwordHelpBlock">
+                                    <!-- </div> -->
+                                </div>
+
+
+
+                                <div class="col-12 col-md-3 col-lg-3 px-5">
+                                    <label for="inputPassword5" class="form-label">EXPIRATION DATE</label>
+                                    <input type="date" id="inputPassword5" name="expire" class="form-control" aria-labelledby="passwordHelpBlock">
+                                </div>
+
+                                <div class="col-12 col-md-3 col-lg-3 px-5">
+                                    <label for="inputPassword5" class="form-label">CVV</label>
+                                    <input type="number" id="inputPassword5" name="cvv" class="form-control">
+                                </div>
+
+                                <div class="col-6 col-md-6 col-lg-6 px-5 mt-5 ">
+                                    <a href="" class="btn btn-danger" role="button" data-bs-toggle="button">CANCLE</a>
+                                </div>
+
+                                <div class="col-6 col-md-6 col-lg-6 px-5 mt-5 d-flex justify-content-end">
+                                    
+                                     <input type="submit" class="btn btn-outline-dark"  value="PROCEED">
+                                </div>
+
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+   </section>
+
+   
+
+
+
+
+    
+    
+
+{% endblock %}
+    
+</body>
+</html>

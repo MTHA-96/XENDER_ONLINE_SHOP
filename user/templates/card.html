@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<body>
+      
+   
+    <div class="container empty_div"></div><!-- empty div -->
+
+    <section class="container-fluid bg-secondary">
+     <div class="container">
+        <div class="row mt-5">
+            <div class="card mt-3">
+                {% if is_empty_card == 0 %}
+                <h1>YOUR CARD IS EMPTY</h1>
+                {% else %}
+
+                {% for order in order_list %}
+                <div class="card-body">
+                    <div class="card bg-primary w-100 justify-content-center">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    {% for product_data in product %}
+                                    {% if order.product_id == product_data.id %}
+                                    <img src="/{{ product_data.image }}" width="150" height="150" class="img-thumbnail list">
+                                    {% endif %}
+                                    {% endfor %}
+
+                                   <div class="d-inline-block pro-data">
+                                        <h5 class="product ms-5">{{ order.name }}</h5>
+                                        <h5 class="size ms-5">Size:<span>{{ order.size }}</span></h5>
+
+                                    </div>
+                                    <div class="d-inline-block pro-price">
+                                        <h5 class="price ms-5">{{ order.price }}</h5>
+                                        <h5 class="ammount ms-5">Quantity:<span>{{ order.quan }} {{ order.delete_order_expire }}</span></h5>
+                                    </div>
+                                    <div class="d-inline-block position-absolute bottom-0 end-0">
+                                        <a href="{% url 'editcard' order.id %}" class="btn btn-success edit">Edit</a>
+                                        <a href="{% url 'deleteorder' order.id %}" class="btn btn-danger remove">Remove</a>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 
+                 {% endfor %}
+
+
+                <table class="table">
+                    <tr>
+                        <td>Total Quantity :<span class="t_quan">{{ total_quan }}</span></td>
+                        <td>Total Price : <span class="t_price">{{ total_price }} KS</span> </td>
+                        <form method="post" action="/user/checkout/">
+                            {% csrf_token %}
+                            <td><button type="submit" class="btn btn-success">Buy</button></td>
+                            
+                        </form>
+                    
+                    </tr>
+                </table>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+   
+    </section>
+
+  {% endblock %}
+   
+
+

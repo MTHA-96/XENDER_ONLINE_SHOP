@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+     {% extends 'base.html' %} 
+     {% load static %}
+     {% block body_block %}
+    
+    <div class="container empty_div"></div><!-- empty div -->
+
+          
+    <section>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-4 ">
+                    <div class="card justify-content-center lg-w-50 w-100 my-5">
+                        <div class="card-body">
+                            <div class="row w-100">
+                                <div class="d-flex justify-content-center mb-3">
+                                <img src="{% static '/images/logo/login.jpg' %}" width="100px" height="100px" style="border-radius:50%;"/>
+                                </div>
+                                <form class="form-floating" method="post" action="/user/userlogin/">
+                                    {% csrf_token %}
+                                   
+                                   {% if error %}
+                                    <div class="alert alert-danger" role="alert">
+                                        <h3>{{ message }}</h3>
+                                    </div>
+                                    {% endif %}
+                                   
+
+                                    <div class="form-floating mb-5  px-3 ">
+                                        <input type="email" name="email_input" class="form-control w-100" id="floatingInput" placeholder="name@example.com">
+                                        <label for="floatingInput" class="ms-3">Email address</label>
+                                    </div>
+                                    <div class="form-floating mt-5  px-3 ">
+                                        <input type="password" name="password_input" class="form-control" id="floatingPassword" placeholder="Password">
+                                        <label for="floatingPassword" class="ms-3">Password</label>
+                                    </div>
+                                    <div class="form-floating mt-5 px-3 w-3 ">
+                                        <input type="submit" class="form-control btn btn-outline-warning"  value="Login">
+                                    </div>
+                                      <p class="small mb-5 pb-lg-2 mt-3 ms-3"><a class="text-white-50" href="#!">Forgot password?</a></p>
+                                </form>
+                                <div class="d-flex justify-content-center">
+                                <h6 class="h6" >Don't you have an account? <a href="{% url 'signup' %}" class="btn btn-dark"></a>
+                                  Singup
+                                    </button></h6> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   {% endblock %}
+
+
+
+
+    
+
+
+    
+</body>
+
+</html>

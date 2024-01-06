@@ -1,0 +1,169 @@
+{% extends 'main.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+            {% load static %}
+            {% block body_block %}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="h4">
+                        <h4 class="h4">Upload New Billboards, Sliders, Payment, Partners</h4>
+                    </div>
+                    {% if msg == True %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>Warning!</strong> {{ send_message }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endif  %}
+
+                     {% if warning == True %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      <strong>Warning!</strong> {{ send_message }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                       <form method="POST" action="/administrator/replacement/">
+                            {% csrf_token  %}
+                            <input type="hidden" name="cap_one" value="{{ first_cap }}">
+                            <input type="hidden" name="cap_two" value="{{ second_cap }}">
+                            <input type="hidden"name="cap_three" value="{{ third_cap }}">
+                            <input type="hidden" name="cap_four" value="{{ fourth_cap }}">
+                            <input type="hidden" name="cap_five" value="{{ fifth_cap }}">
+                            <input type="hidden" name="date" value="{{ date }}">
+                            <!-- <input type="hidden" name="image" value= "{{ image }}"> -->
+                            <input type="hidden" name="cate" value="{{ cate }}">
+                            <input type="hidden" name="subcate" value="{{ subcate }}">
+                            <input type="hidden" name="adv_id" value="{{ adv_no }}">
+                            <input type="hidden" name="pro_id" value="{{ product_id }}">
+                           
+                            <input type="submit" class="btn btn-danger" value="Yes">
+                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </form>
+                    </div>
+                    {% endif  %}
+                   
+
+                    <div class="container-fluid lg-mx-5 ps-5 my-5  justify-content-center">
+                        <form method="post" action="/administrator/add_advertisement/" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                                <select class="form-control" id="inputGroupSelect01" name="category">
+                                    {% for cate in category %}
+                                        <option value="{{ cate.id }}"> {{ cate.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                                <input type="date" name="date" class="form-control" placeholder="Date">
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                                <select class="form-control" id="inputGroupSelect01" name="sub_category">
+                                    {% for subcate in subcategory %}
+                                        <option value="{{ subcate.id }}"> {{ subcate.name }}</option>
+                                    {% endfor %}
+                                    
+                                    
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                                <select class="form-control" id="inputGroupSelect01" name="adv_code">
+                                 
+                                    {% for numb in adv_id_range %}
+                                        <option> {{ numb  }}</option>
+                                    {% endfor %}
+                                    
+                                    
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                               <textarea placeholder="First Caption" name="fst_cap"  class="form-control"></textarea>
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                               <textarea placeholder="Second Caption" name="sec_cap"  class="form-control"></textarea>
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                               <textarea placeholder="Third Caption" name="trd_cap"  class="form-control"></textarea>
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                               <textarea placeholder="Fourth Caption" name="fth_cap"  class="form-control"></textarea>
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                               <textarea placeholder="Fifth Caption" name="fith_cap"  class="form-control"></textarea>
+                            </div>
+                            <div class="col-12 col-lg-5 col-sm-4 d-inline-block my-4">
+                                 <select class="form-control" id="inputGroupSelect01" style="margin-bottom:15px;" name="product_id">
+                                 
+                                    {% for product_list in products %}
+
+                                        <option value="{{ product_list.id }}"> {{ product_list.name }}</option>
+                                    
+                                    {% endfor %}
+                                    
+                                    
+                                </select>
+                               <input type="file" name="image" class="form-control" placeholder="drop your photos">
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-4 d-inline-block my-4">
+                                <button class="btn btn-outline-danger">CANCLE</button>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-4 d-inline-block my-4">
+                                <button class="btn btn-secondary">UPLOAD</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>
+
+{% endblock %}
+</html>

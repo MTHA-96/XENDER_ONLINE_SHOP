@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block body_block %}   
+   
+    <!-- this is the navbar part -->
+
+    <div class="container empty_div"></div><!-- empty div -->
+
+   <section>
+        <div class="container-fluid py-5">
+            <div class="container">
+                <h1 class="h1 text-center">Contact Us</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                    <iframe id="map" class="iframe" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d540.6436362408097!2d96.23747569600233!3d16.85281939146339!3m2!1i1024!2i768!4f13.1!5e1!3m2!1smy!2smm!4v1674289140240!5m2!1smy!2smm" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+            </div>
+        </div>
+   </section><!--first section-->
+
+   <section>
+        <div id="msg_box" class="container-fluid bg-secondary my-5 py-5">
+            <div class="container">
+                <h1 class="h1 d-flex justify-content-center my-5 msg-h">Send Message Us</h1>
+            </div>
+            <div class="d-flex justify-content-center container">
+                <form class="form w-50" method="get" action="/user/feedback/">
+                        {% csrf_token %}
+                    <div class="form-floating">
+                        <input type="text" class="form-control bg-secondary card shadow-md text-center" id="floatingInput" name="name" placeholder="Name">
+                        <label>Name</label>
+                    </div>
+                    <!-- <label for="floatingInput">Name</label> -->
+                    <div class="form-floating">
+                        
+                    {% if email != 'empty'%}
+                     {% for mail in email %}
+                        <input type="email" name="email" class="form-control bg-secondary card shadow-md text-center my-3" id="floatingPassword" placeholder="name@example.com" value="{{ mail.email }}">
+                        <label>Email</label>
+                     {% endfor %}
+                     {% else %}
+                         <input type="email" name="email" class="form-control bg-secondary card shadow-md text-center my-3" id="floatingPassword" placeholder="name@example.com" value="">
+                        <label>Email</label>
+                    {% endif %}
+            
+                        
+                        <!-- <input type="email" name="email" class="form-control bg-secondary card shadow-md text-center my-3" id="floatingPassword" placeholder="name@example.com" >
+                        <label>Email</label> -->
+                    
+                    
+
+                      
+                       
+                       
+                        
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="form-control h-75 bg-secondary card shadow-md text-center my-3" placeholder="Leave a comment here" name="comment" id="floatingTextarea"></textarea>
+                        <label for="floatingTextarea">Comments</label>
+                      </div>
+                    <div class="form-floating d-flex justify-content-center">
+                        <input type="submit" class="btn btn-outline-warning shadow-md w-50" value="Send">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+   </section><!--second section || message box -->
+   
+   <section>
+        <div id="social" class="container-fluid my-5 py-5">
+            <div class="container">
+                <h1 class="h1 d-flex justify-content-center">FOLLOW US</h1>
+            </div>
+            <div class="container my-5">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <h5 class="h5 ms-5 my-5"><i><img src="static/images/products/slider-1.jpg" width=50 height=50/></i>1278,Katha street,19 Ward,South Dagon Township Yangon,Myanmar</h5>
+                        <h5 class="h5 ms-5"><i><img src="static/images/products/index.jpg" width=50 height=50/></i>09-420163129</h5>
+                    </div>
+                    <div id="soc" class="col-12 col-md-6 col-lg-6">
+                        <img src="static/images/products/slider-3.jpg" width="70" height="70"/>
+                        <img src="static/images/products/slider-3.jpg" width="70" height="70"/>
+                        <img src="static/images/products/slider-3.jpg" width="70" height="70"/>
+                        <img src="static/images/products/slider-3.jpg" width="70" height="70"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </section><!--third section || social media section-->
+       
+
+{% endblock %}
+    
+</body>
+
+</html>

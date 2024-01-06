@@ -1,0 +1,1210 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+/*FOR FLOAT TO UP BUTTON*/
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  color: white;
+}
+
+
+
+/*start  navbar */
+.nav_bg{
+    background-color: rgb(6, 1, 8);
+}
+.nav_logo{
+    margin-left: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1em;
+}
+.home{
+    font-size: 1.2em;
+    margin:0px 10px 0px 10px;
+}
+
+.nav-item{
+    font-size: 1.3em;
+    margin:0px 10px 0px 10px;
+   
+}
+.about{
+    font-size:1.2em;
+    margin:0px 10px 0px 10px;
+}
+.contact{
+    font-size:1.2em;
+    margin:0px 10px 0px 10px;
+
+}
+#links a{
+    color: #d1ceaf;
+}
+#links a:hover{
+    color:rgb(249, 153, 63);
+}
+#links a:active{
+    color:blueviolet;
+}
+#ddm{
+    background-color: #000;
+}
+
+.search{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+}
+
+.search input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+.search:hover,
+.search:valid{
+    width: 200px;
+    cursor: pointer;
+}
+
+.search:hover input,
+.search:valid input{
+    display: block;
+}
+
+.search:hover .fa,
+.search:valid .fa{
+    background: #07051a;
+    color: white;
+}
+
+
+.search a {
+  display: none;
+  position: absolute;
+  top: 70px;
+  bottom:0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  color: white;
+  text-align: center; 
+  width: 100%;
+}
+
+.search:valid a {
+  display: block;
+}
+.login li{
+    
+    text-align: center;
+
+}
+.login a {
+    color: white;
+    text-decoration: none;
+    font-size:1.2em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; ;
+}
+.login a:hover{
+    color:orange;
+}
+.badge i {
+    font-size:1.3em;
+    position: relative;
+    top:30;
+    bottom:10;
+    left:-30px;
+}
+
+.signup{
+    border-radius: solid 1px;
+}
+/* end navbar */
+
+/* start index first section */
+.empty_div{
+    margin-top: 80px;
+}
+.label{
+    margin-bottom:100px;
+}
+/* end index first setion */
+
+/* start section two */
+.bg_image{
+    background-image: url("images/logo/login.png");
+}
+
+#main_h_1{
+    margin: 20px 0px 35px 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:2em;
+    font-weight: 1.5em;
+    color: #070928;
+}
+
+#card_one,
+#card_two,
+#card_three,
+#card_four{
+    height:400px;
+    border: solid 3px rgb(244, 239, 239);
+    border-radius: 10px;
+}
+.dis{
+    margin-top:20px;
+    font-size:1.2em;
+    color:#070928;
+    font-weight: 1.5em;
+}
+
+.name_card{
+    text-align: center;
+    font-size:1.2em;
+    margin-top: 170px;
+    width: 150px;
+    
+}
+#card_one h2{
+    background-color:transparent;
+}
+.dwtm_btn{
+    width:150px;
+    height: 35px;
+    text-align: center;
+    padding-top: 2px;
+    text-decoration: none;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size:1.2em; 
+    color:black;
+}
+.dwtm_btn:hover {
+   background-color: #35330a;
+   color: #ffffff;
+}
+
+.btn-one,
+.btn-two,
+.btn-three,
+.btn-four{
+    margin-top: 40px;
+    width: 100px;
+}
+.btn-five,
+.btn-six{
+    margin-left:45px;
+    width:150px;
+    margin-top:20px;
+}
+.detail_card{
+    margin-top: 120px;
+    margin-left:45px;
+    width: 200px;
+    height: 50px;
+}
+#card_five,
+#card_six{
+    height: 350px;
+    border: solid 4px white ;
+    border-radius:30px;
+}
+/* end section two */
+
+/* start section three */
+
+#main_h_2{
+    margin: 20px 0px 35px 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:2em;
+    font-weight: 1.5em;
+    color: #ffffff;
+}
+
+#sec_3{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.bs_img{
+    border-radius: 10px;
+}
+
+.product_label{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:1.1em;
+    font-weight: 1.3em;
+    color: #ffffff;
+}
+
+.bs_btn{
+    text-align: center;
+    padding: 0px 10px 5px 10px;
+    text-decoration: none;
+    border: solid 1px #ffffff;
+    border-radius: 5px;
+    font-size:1.2em; 
+    color:#ffffff;
+}
+.bs_btn:hover {
+    background-color: #ffffff;
+    color:black;
+}
+
+/* end section three */
+
+/* start section four */
+#main_h_4{
+    margin: 20px 0px 35px 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:2em;
+    font-weight: 1.5em;
+    color: #441818;
+}
+#narr_label{
+    margin-top: 10px;
+}
+
+.narr_b{
+    text-decoration: none;
+    padding-top : 10px;
+    color: #080b28;
+    
+}
+.narr_b:hover{
+    color: #cc7d1e;
+}
+
+.narr_b h5{
+    font-size: 1em;
+}
+
+#sec_4{
+    background-color: rgb(171, 166, 166);
+}
+#img-1,
+#img-2,
+#img-3,
+#img-4,
+#img-5,
+#img-6{
+    border: solid 2px rgba(179, 167, 167, 0.886);
+    border-radius: 50%;
+    margin-top: 50px;
+}
+
+/*start section five */
+
+/* //// END OF INDEX \\\\ */
+
+
+
+/* //// MEN PAGE START \\\\ */
+
+
+
+
+
+#m-sec-1{
+    padding-top:30px;
+    padding-bottom: 30px;
+}
+
+
+#adv-1{
+    margin-top:15px;
+    margin-bottom: 15px;
+    height: 400px;
+}
+
+/* //for men product card// */
+.product-box{
+    margin-top: 20px;
+    border: 1px solid rgb(255, 254, 254);
+    border-bottom-left-radius: 10px;
+    box-shadow: 0px 50px 50px -29px rgba(18, 17, 17, 0.26);
+}
+.product-inner-box .icons{
+    right:15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    top: -3%;
+    transition:all 0.5s ease-in-out,transform 0.5s ease-in-out,opacity 0.2s ease-in-out;
+    opacity: 0;
+
+}
+.product-inner-box .icons a {
+    width: 40px;
+    height: 40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background:#fff;
+}
+.product-inner-box .onsale .badge {
+    background: #000;
+    font-size: 12px;
+    padding: 5px 14px;
+    top: 0px;
+    position: absolute;
+}
+.product-inner-box .onsale .badge:before {
+    border-width: 10px 0px 0px 10px;
+    border-color: transparent transparent transparent #000;
+    content: "";
+    position: absolute;
+    right: -8px;
+    width: 0;
+    bottom:0;
+    border-style: solid;
+}
+
+.product-inner-box .onsale .badge:after {
+    border-width: 10px 8px 0px 10px;
+    border-color: #000 transparent transparent;
+    content: "";
+    position: absolute;
+    right: -8px;
+    width: 0;
+    top:0;
+    border-style: solid;
+}
+
+.product-inner-box img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-box.is-hover .icons {
+    transform: rotateY(-3%);
+    top: 3%;
+    opacity: 1;
+}
+
+.cart-btn {
+    position: absolute;
+    bottom: 70px;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    transition:all 0.5s ease-in-out,transform 0.5s ease-in-out,opacity 0.2s ease-in-out;
+}
+.product_info{
+    border: solid 1px black;
+    box-shadow: crimson;
+    background-color: rgb(15, 52, 68);
+    border-bottom-left-radius:10px;
+    display: flex;
+}
+.product_name{
+    font-size: 1em;
+    color: #ffffff;
+    width:97px;
+    height: 60px;
+   
+}
+.product_name h3{
+    height:60px;
+    font-size: 0.7em;
+    padding:3px 0px 2px 3px;
+    font-weight: bold;
+}
+.product_price{
+    display: flex;
+    color: #ffffff;
+}
+.product_price del{
+    color :red
+}
+
+.product-old-price{
+    position: absolute;
+    bottom: 20px;
+    right:30px;
+}
+.product-box.is-hover .cart-btn {
+    opacity: 1;
+}
+/* //for men product card// */
+
+
+#men_h_1, #main_h_4{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+}
+
+
+#m-sec-2 h2 {
+    font-weight: bold;
+}
+#m_sec_3, #m_sec_4{
+    padding-bottom: 30px;
+}
+#m-sec-3 h2 {
+    padding-top: 30px;
+    font-weight: bold;
+    color: white;
+}
+#m_sec_4{
+    padding-bottom: 50px;
+}
+#m-sec-4{
+    padding-top: 5px;
+}
+
+#m-sec-4 h2{
+    color: #ffffff;
+}
+
+/* //// END OF MEN PAGE \\\\ */
+
+/* //// WM PAGE START \\\\ */
+
+#wm-sec-1{
+    padding-top:30px;
+    padding-bottom: 30px;
+}
+#adv-2{
+    margin: 100px 0px 100px 0px;
+}
+
+
+
+ .card {
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    width: 190px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.image-container {
+    position: relative
+}
+.image-container:hover {
+    transform: scale(1.3);
+}
+
+.thumbnail-image {
+    border-radius: 10px !important
+}
+
+.discount {
+    background-color: rgb(108, 63, 63);
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 15px;
+    border-radius: 6px;
+    color: #fff
+}
+
+.wishlist {
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+
+.first {
+    position: absolute;
+    width: 100%;
+    padding: 9px
+}
+
+.dress-name {
+    font-size: 13px;
+    font-weight: bold;
+    width: 75%
+}
+
+.new-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: red
+}
+
+.old-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: grey
+}
+
+
+
+
+.buy {
+    font-size: 12px;
+    color: purple;
+    font-weight: 500
+}
+
+.voutchers {
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    width: 190px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden
+}
+
+.voutcher-divider {
+    display: flex
+}
+
+.voutcher-left {
+    width: 60%
+}
+
+.voutcher-name {
+    color: grey;
+    font-size: 9px;
+    font-weight: 500
+}
+
+.voutcher-code {
+    color: red;
+    font-size: 11px;
+    font-weight: bold
+}
+
+.voutcher-right {
+    width: 40%;
+    background-color: purple;
+    color: #fff
+}
+
+.discount-percent {
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    top: 5px
+}
+
+.off {
+    font-size: 14px;
+    position: relative;
+    bottom: 5px
+} 
+
+/* //// END OF WM PAGE  \\\\ */
+
+/* //// KID PAGE START \\\\ */
+
+
+
+/* //// END OF KID PAGE \\\\ */
+
+
+/* // CONTANT PAGE START \\ */
+#map{
+    height:400px;
+}
+#msg_box h1{
+    color: rgba(211, 179, 54, 0.754);
+    font-weight: bold;
+}
+#msg_box label{
+    color: rgb(248, 248, 248);
+    font-size: 1.3em;
+    ;
+}
+#msg_box input,
+#msg_box textarea{
+    color: rgb(248, 248, 248);
+    font-size: 1.3em;
+    ;
+}
+
+#soc img{
+    position: relative;
+    margin:70px 10px 10px 10px;
+    border-radius: 5px;
+    box-sizing: content-box;
+    box-shadow:5px 5px 5px -29px rgba(146, 16, 16, 0.26);
+  
+
+}
+
+
+/* // CONTANT PAGE END \\ */
+
+/* // ABOUT PAGE START \\ */
+#about p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:1.1em;
+    letter-spacing: 1px;
+    line-height: auto;
+}
+
+#about .card{
+    border-radius:60px;
+}
+
+#services .card{
+    background-color: rgba(164, 127, 127, 0.511);
+    border-radius:30px;
+}
+
+#services ul{
+    margin:70px 10px;
+    
+}
+#services li{
+    color: #ffe2e2;
+    font-size: 1.1em;
+}
+
+/* // ABOUT PAGE END \\ */
+
+/* // DETAIL PAGE START \\ */
+
+.sub_img{
+    display: flex;
+    justify-content: space-between;
+}
+.sub_img_col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+.size_check{
+    margin-left: 10px;
+    width:30px;
+}
+.checklabel{
+    display: flex;
+    
+
+}
+.checklabel h5{
+    margin-left:10px;
+}
+.quan{
+    width:100px;
+    height:50px;
+    text-align: center;
+    font-size:1.3em;
+    font-weight: bold;
+}
+
+
+  .checkbox-wrapper-37 input[type="checkbox"] {
+    display: none;
+  }
+
+  .checkbox-wrapper-37 .terms-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox-wrapper-37 .terms-label .label-text {
+    margin-left: 10px;
+  }
+
+  .checkbox-wrapper-37 .checkbox-svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .checkbox-wrapper-37 .checkbox-box {
+    fill: #d1ceaf;
+    stroke: #170e49;
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-37 .checkbox-tick {
+    stroke: #170e49;
+    stroke-dasharray: 172;
+    stroke-dashoffset: 172;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-37 input[type="checkbox"]:checked + .terms-label .checkbox-box,
+  .checkbox-wrapper-37 input[type="checkbox"]:checked + .terms-label .checkbox-tick {
+    stroke-dashoffset: 0;
+  }
+
+
+
+
+  .checkbox-wrapper-38 input[type="checkbox"] {
+    display: none;
+  }
+
+  .checkbox-wrapper-38 .terms-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox-wrapper-38 .terms-label .label-text {
+    margin-left: 10px;
+  }
+
+  .checkbox-wrapper-38 .checkbox-svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .checkbox-wrapper-38 .checkbox-box {
+    fill: #d1ceaf;
+    stroke: #170e49;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-38 .checkbox-tick {
+    stroke: #170e49;
+    stroke-dasharray: 172;
+    stroke-dashoffset: 172;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-38 input[type="checkbox"]:checked + .terms-label .checkbox-box,
+  .checkbox-wrapper-38 input[type="checkbox"]:checked + .terms-label .checkbox-tick {
+    stroke-dashoffset: 0;
+  }
+
+
+
+  .checkbox-wrapper-39 input[type="checkbox"] {
+    display: none;
+  }
+
+  .checkbox-wrapper-39 .terms-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox-wrapper-39 .terms-label .label-text {
+    margin-left: 10px;
+  }
+
+  .checkbox-wrapper-39 .checkbox-svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .checkbox-wrapper-39 .checkbox-box {
+    fill: #d1ceaf;
+    stroke: #170e49;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-39 .checkbox-tick {
+    stroke: #170e49;
+    stroke-dasharray: 172;
+    stroke-dashoffset: 172;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-39 input[type="checkbox"]:checked + .terms-label .checkbox-box,
+  .checkbox-wrapper-39 input[type="checkbox"]:checked + .terms-label .checkbox-tick {
+    stroke-dashoffset: 0;
+  }
+
+
+
+
+  .checkbox-wrapper-40 input[type="radio"] {
+    display: none;
+  }
+
+  .checkbox-wrapper-40 .terms-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox-wrapper-40 .terms-label .label-text {
+    margin-left: 10px;
+  }
+
+  .checkbox-wrapper-40 .checkbox-svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .checkbox-wrapper-40 .checkbox-box {
+    fill: #d1ceaf;
+    stroke: #170e49;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-40 .checkbox-tick {
+    stroke: #170e49;
+    stroke-dasharray: 172;
+    stroke-dashoffset: 172;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-40 input[type="radio"]:checked + .terms-label .checkbox-box,
+  .checkbox-wrapper-40 input[type="radio"]:checked + .terms-label .checkbox-tick {
+    stroke-dashoffset: 0;
+  }
+
+
+
+  .checkbox-wrapper-41 input[type="radio"] {
+    display: none;
+  }
+
+  .checkbox-wrapper-41 .terms-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox-wrapper-41 .terms-label .label-text {
+    margin-left: 10px;
+  }
+
+  .checkbox-wrapper-41 .checkbox-svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .checkbox-wrapper-41 .checkbox-box {
+    fill: #d1ceaf;
+    stroke: #170e49;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-41 .checkbox-tick {
+    stroke: #170e49;
+    stroke-dasharray: 172;
+    stroke-dashoffset: 172;
+    transition: stroke-dashoffset 0.6s ease-in;
+  }
+
+  .checkbox-wrapper-41 input[type="radio"]:checked + .terms-label .checkbox-box,
+  .checkbox-wrapper-41 input[type="radio"]:checked + .terms-label .checkbox-tick {
+    stroke-dashoffset: 0;
+  }
+
+
+
+
+.radio ul{
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.radio ul li{
+  color: #1d2638;
+  display: block;
+  position: relative;
+  float: left;
+  width: 50px;
+  height: 100px;
+    border-bottom: 1px solid #333;
+}
+
+.radio ul li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+.radio ul li label{
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 1.35em;
+  padding: 25px 25px 25px 80px;
+  margin: 10px auto;
+  height: 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
+.radio ul li:hover label{
+    color: #1d2638;
+}
+
+.radio ul li .check{
+  display: block;
+  position: absolute;
+  border: 5px solid #1d2638;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  top: 30px;
+  left: 20px;
+    z-index: 5;
+    transition: border .25s linear;
+    -webkit-transition: border .25s linear;
+}
+
+.radio ul li:hover .check {
+  border: 5px solid #191344;
+}
+
+.radio ul li .check::before {
+  display: block;
+  position: absolute;
+    content: '';
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  top: 3px;
+    left: 3px;
+  margin: auto;
+    transition: background 0.25s linear;
+    -webkit-transition: background 0.25s linear;
+}
+
+.radio input[type=radio]:checked ~ .check {
+  border: 5px solid #1d2638;
+}
+
+.radio input[type=radio]:checked ~ .check::before{
+  background: #1d2638;
+}
+
+.radio input[type=radio]:checked ~ label{
+  color: #1d2638;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* // DETAIL PAGE END \\ */
+
+
+/* PAYMENT METHOD PAGE */
+.card-body h3{
+    font-weight:bold;
+}
+.pay_form label{
+    font-size:1em;
+    font-weight: bold;
+}
+
+.modal-content,
+.modal-body{
+    background-color: #2b1337;
+}
+.login-form{
+    font-size:1.2em;
+}
+
+/* SIGN UP SUCCESS PAGE */
+.success_text h2,
+.success_text h3{
+    color:white;
+    text-align: center;
+}
+  
+
+ 
+  
+
+
+
+
+
+@media only screen and (max-width:480px){
+    
+    /* PRODUCT CARD PAGE */
+    .list {
+        width:70px;
+        height:70px;
+    }
+    .product{
+        font-size:0.8em;
+    }
+    .size{
+        font-size:0.8em;
+    }
+    .price{
+        font-size:0.8em;
+    }
+    .ammount{
+        font-size:0.8em;
+    }
+    .edit{
+        transform: translateX(0px);
+        width:60px;
+        height:30px;
+        font-size:0.7em;
+    }
+    .remove{
+        transform: translateX(0px);
+        width:83px;
+        height:30px;
+        font-size:0.7em;
+
+    }
+    /* PRODUCT CARD PAGE */
+
+    /* PAYMENT METHOD PAGE */
+    .table th{
+        font-size:0.8em;
+    }
+    .table .ftr td{
+        font-size:0.8em;
+    }
+
+}
+
+
+
+/*/////FOOTER SECTION \\\\*/
+#footer {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.contant_info_con{
+    color:#ffffff;
+}
+.contant_info_con h5,p{
+    margin-left:10px;
+    font-size:1.1em;
+    color: #ffffff;
+}
+.about_us_con{
+    color: #ffffff;
+}
+.about_us_con a {
+    text-decoration: none;
+    font-size:1em;
+    color:#ffffff;
+
+}
+.about_us_con a :hover {
+    color:#f4e669;
+}
+.about_us_con p {
+    margin-left: 10px;
+
+} 
+
+.follow_us_con{
+    color: #ffffff;
+}
+.follow_icon_ul,.payment_icon_ul{
+    list-style: none;
+    display: inline-flex;
+    margin-top:10px;
+}
+.follow_icon_ul a {
+    color:#ffffff;
+}
+.payment_icon_ul li,.follow_icon_ul li{
+    margin-left: 20px;
+}
+
+.follow_icon_ul li :hover {
+   color:#fcf349;
+}
+
+/*///// END OF FOOTER \\\\\\\\\*/
+
+
+/*//////COPYRIGHT SECTION \\\\\\ */
+
+.cpright_con{
+    background-color: #0f3444;
+}
+.cpright_con h3 {
+    font-weight: bolder;
+    color: #97cce5;
+}
+.cpright_con p{
+    color: #ffffff;
+}
+.cpright_con a {
+    text-decoration: none;
+    color: #97cce5;
+}
+.cpright_con a:hover {
+    color: #ffffff;
+}
+
+
+
+
+
+
+

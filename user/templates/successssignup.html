@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles/styles.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="logo">
+    <script src="https://kit.fontawesome.com/13b79b6368.js" crossorigin="anonymous"></script>
+    <title>XENDER</title>
+</head>
+<body>
+      
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top nav_bg">
+        <div class="container-fluid">
+            <a class="navbar-brand nav_logo" href="index.html"><h1>XENDER</h1></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav nav-fill nav-pills me-auto mb-2 mb-md-0">
+                    <li class="nav-item categories">
+                        <a class="nav-link active" aria-current="page" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item access">
+                        <a class="nav-link" href="#">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <a class="navbar-brand" href="#">Login</a>
+            
+        </div>
+        <div>
+            <a class="navbar-brand" href="#">Card</a>
+        </div>
+    </nav>
+    <!-- this is the navbar part -->
+
+    <div class="container empty_div"></div><!-- empty div -->
+
+ 
+
+    <section>
+       <div class="container-fluid">
+         <div class="row">
+            <div class="col-12 d-flex justify-content-center mt-5 py-3">
+                <div class="card justify-content-center success" style="width:500px; height: 500px; background-color: rgb(53, 37, 118);">
+                    <div class="card-body justify-content-center">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <img src="static/images/logo/1_successful.gif" width="300px" height="250px"/>
+                            </div>
+                            <div class="col-12 success_text">
+                                <h2 >Welcome</h2>
+                                <h3 class="mt-5">You have created an account successfully!</h3>
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <a href="index.html" class="btn btn-dark ">OK</a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+
+           
+            
+        </div>
+       </div>
+        
+    </section><!--success section-->
+
+   
+
+    <section>
+        <div id="footer" class="container-fluid py-5" style="background-image: url('static/images/products/slider-2.jpg'); background-size: cover; background-attachment: fixed;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <h4>Contact Info</h4>
+                        <h4>Phone</h4>
+                        <h5>09 420163129</h5>
+                        <h4>Our Office Location</h4>
+                        <p>No(1278),Katha street,(19)Ward,South Dagon Tsp,Yangon,Myanmar</p>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <h4>About Us</h4>
+                        <h4>Phone</h4>
+                        <h5>09 420163129</h5>
+                        <h4>Our Office Location</h4>
+                        <p>No(1278),Katha street,(19)Ward,South Dagon Tsp,Yangon,Myanmar</p>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <h4>FOLLOW US</h4>
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--footer section-->
+
+    <section>
+        <div id="copyright" class="container-fluid">
+            <div class="row">
+                <div class="col-12 bg-secondary">
+                    <div class="d-flex justify-content-center">
+                        <h3>XENDER</h3>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <p>Copyright © Xender Fashing
+                        
+                            | Design:<a rel="nofollow" href="http://www.tooplate.com" target="_parent"> Min Thiha (Solomon)</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </section> <!--copyright section-->
+    
+
+
+
+
+    
+    
+
+
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script type="text/javascript">
+// Wait for the page to load
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the message box element
+  var messageBox = document.getElementById('message-box');
+
+  // Apply the fade-in animation
+  messageBox.style.opacity = '0';
+  setTimeout(function() {
+    messageBox.style.opacity = '1';
+  }, 100);
+
+  // Remove the message box after 3 seconds
+  setTimeout(function() {
+    messageBox.style.opacity = '0';
+    setTimeout(function() {
+      messageBox.remove();
+    }, 500);
+  }, 3000);
+});
+</script>
+
+</html>

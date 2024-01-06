@@ -1,0 +1,207 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="h4">
+                        <h4 class="h4">Billboards Details</h4>
+                    </div>
+
+                    <div class="container-fluid lg-mx-5 ps-5 my-5  justify-content-center">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3" style="max-width: 18rem; margin-right:20px;">
+                                            <div class="card-header">ID</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ advertisement_detail.id }}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="card text-bg-success mb-3 ms-5" style="max-width: 18rem;margin-left:20px;">
+                                            <div class="card-header">NAME</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ advertisement_detail.first_caption }}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="card text-bg-success mb-3 ms-5" style="max-width: 18rem;margin-left:20px;">
+                                            <div class="card-header">ISSUE DATE</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ advertisement_detail.date }}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3" style="max-width: 20rem; margin-right:20px;">
+                                            {% for catego in advertisement_detail.category.all %}
+                                            <div class="card-header">CATEGORIES</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ catego.name }}</h5>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="card text-bg-success mb-3 ms-5" style="max-width: 18rem;margin-left:20px;">
+                                             {% for subcatego in advertisement_detail.sub_category.all %}                                                
+                                            <div class="card-header">SUB CATEGORIES</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ subcatego.name }}</h5>
+                                            </div>
+                                            {% endfor %}    
+                                        </div>
+                                        <div class="card text-bg-success mb-3 ms-5" style="max-width: 18rem;margin-left:20px;">
+                                            <div class="card-header">ADS ID</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ advertisement_detail.adv_id }}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3 w-100 " style="margin-right:20px;">
+                                            <div class="card-header">FIRST DESCRIPTION</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <ul>
+                                                        <li><p>{{ advertisement_detail.first_caption }}</p></li>
+                                                    </ul>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3 w-100" style="margin-right:20px;">
+                                            <div class="card-header">SECOND DESCRIPTION</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <ul>
+                                                        <li><p>{{ advertisement_detail.second_caption }}</p></li>
+                                                    </ul>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3 w-100 " style="margin-right:20px;">
+                                            <div class="card-header">FIRST DESCRIPTION</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <ul>
+                                                        <li><p>{{ advertisement_detail.third_caption }}</p></li>
+                                                    </ul>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3 w-100" style="margin-right:20px;">
+                                            <div class="card-header">SECOND DESCRIPTION</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <ul>
+                                                         <li><p>{{ advertisement_detail.fourth_caption }}</p></li>
+                                                    </ul>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3 w-100 " style="margin-right:20px;">
+                                            <div class="card-header">FIRST DESCRIPTION</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <ul>
+                                                        <li><p>{{ advertisement_detail.fifth_caption }}</p></li>
+                                                    </ul>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-md-6 d-flex">
+                                        <div class="card text-bg-success mb-3 w-100" style="margin-right:20px;">
+                                            <div class="card-header">BILLBOARD OR OTHERS IMAGE</div>
+                                            <div class="card-body">
+                                                <img src="/{{ advertisement_detail.image }}" class="image-container" width="300px" height="300px" />    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="col-12">
+                                        <a href="javascript:history.back()" class="btn btn-success">Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
+
+{% endblock %}

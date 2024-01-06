@@ -1,0 +1,203 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en">
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="h4">
+                        <h4 class="h4">Order Lists</h4>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Order Customer list</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>Buyer Name</th>
+                                            <th>Email</th>
+                                            <th>Order Date</th>
+                                            <th>Units</th>
+                                            <th>Payment Method</th>
+                                            <th>Options</th>
+                                            <!-- th>Discount</th>
+                                            <th>Options</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for customer_list in order %}
+                                      
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>{{ customer_list.name }}</td>
+                                            <td>{{ customer_list.email }}</td>
+                                            <td>{{ customer_list.order_date  }}</td>
+                                            {% for total_id, total_quan in quan_list.items  %}
+                                                {% if total_id == customer_list.id %}
+                                                    <td>{{ total_quan }}</td>
+                                                {% endif %}
+                                            {% endfor %}
+                                            <td>{{ customer_list.payment_method  }}</td>
+                                            <td>
+                                                <a  data-bs-toggle="collapse" href="#collapseExample{{ customer_list.id }}" role="button" aria-expanded="false" aria-controls="collapseExample{{ customer_list.id }}">
+                                                V
+                                                </a>
+                                               
+                                                    <a href="{% url 'order_detail' pk=customer_list.id %}" class="btn btn-primary">Detail</a>
+                                            </td>
+                                            <!-- <td>30%</td>
+                                            <td>V</td> -->
+                                        </tr>
+                                        
+                                        <tr>
+                                            
+                                            <tr class="collapse" id="collapseExample{{ customer_list.id }}">
+                                                <th></th>
+                                                <th>ID</th>
+                                                <th>Product Name</th>
+                                                <th>Size</th>
+                                                <th>Unit Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total Price</th>
+                                               
+
+                                            </tr>
+                                              <!-- <h1>{{ customer_list.customer_data.id }}</h1> -->
+                                            {% for order in order_list %}
+
+                                            {% if customer_list.id == order.customer_data.id %}
+                                            <tr class="collapse" id="collapseExample{{ customer_list.id }}">
+
+                                                <td></td>
+                                                <td>{{ forloop.counter }}</td>
+                                                <td>{{order.product}}</td>
+                                                <td>{{ order.size }}</td>
+
+                                                {% for dis in product_data %}
+                                                    {% if dis.id == order.product_id %}
+                                                        <td>{{ dis.new_price }}</td>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <td>{{ order.quantity}}</td>
+                                                <td>{{ order.price }} MMK</td>
+                                                
+                                            </tr>
+                                            
+                                            {% endif %}
+                                            {% endfor %}
+                                            <tr class="collapse" id="collapseExample{{ customer_list.id }}">
+                                                <td></td>
+                                                <td colspan="5">Total Paid</td>
+                                                {% for total_id, total_price in price_list.items  %}
+                                                    {% if total_id == customer_list.id %}
+                                                    <td colspan="4">{{ total_price }}</td>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </tr>
+                                      
+                                     </tr>
+                                    
+                                     {% endfor %}
+                                        <tr>
+                                            <td>1</td>
+                                            <td><img src="img/undraw_profile.svg" width="50px" height="50px" class="img-fluid"></td>
+                                            <td>HP Probook</td>
+                                            <td>Men</td>
+                                            <td>Shirt</td>
+                                            <td>02/08/2023</td>
+                                            <td>edit,del,det</td>
+                                            <!-- <td>30%</td>
+                                            <td>V</td> -->
+                                        </tr>
+                                         <tr class="collapse" id="collapseExample">
+                                                <th>ID</th>
+                                                <th>Product Name</th>
+                                                <th>Size</th>
+                                                <th>Price</th>
+                                                <th>Product id</th>
+                                                <th>Quantity</th>
+                                            </tr>
+                                            <tr class="collapse" id="collapseExample">
+                                                <td>ID</td>
+                                                <td>Product Name</td>
+                                                <td>Size</td>
+                                                <td>Price</td>
+                                                <td>Product id</td>
+                                                <td>Quantity</td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+</body>
+
+</html>
+{% endblock %}

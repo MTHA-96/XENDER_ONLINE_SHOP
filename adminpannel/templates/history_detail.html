@@ -1,0 +1,234 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en">
+<body id="page-top">
+
+
+
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="h4">
+                        <h4 class="h4"> Detail Sold Out History </h4>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Order Product List</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>image</th>
+                                            <th>Product Name</th>
+                                            <th>Size</th>
+                                            <th>Unit Price </th>
+                                            <th>Dicount</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for history in  history_list %}
+                                        {% if history.customer_data.id == history_detail.id %}
+                                        <tr>
+                                            <td>{{ history.id }}</td>
+                                            
+                                            {% for dis in product_data %}
+                                             {% if dis.id == history.product_id %}
+                                                <td><img src="/{{ dis.image }}" width="50px" height="50px" ></td>
+                                             {% endif %}
+                                            {% endfor %}
+
+                                            <td>{{ history.product }}</td>
+                                            <td>{{ history.size }}</td>
+
+                                            {% for dis in product_data %}
+                                             {% if dis.id == history.product_id %}
+                                                <td>{{ dis.new_price }}</td>
+                                             {% endif %}
+                                            {% endfor %}
+
+                                            {% for dis in product_data %}
+                                             {% if dis.id == history.product_id %}
+                                                <td>{{ dis.discount }}%</td>
+                                             {% endif %}
+                                            {% endfor %}
+                                            <td>{{ history.quantity }}</td>
+                                            <td>{{ history.price }} MMK</td>
+                                        </tr>
+                                       {% endif %}
+                                        {% endfor %}
+                                        <tr>
+                                            <td colspan="6" style="text-align: center;">Total Paid</td>
+
+                                            {% for total_id, total_quan in quan_list.items  %}
+                                                {% if total_id == history_detail.id %}
+                                                    <td>{{ total_quan }}</td>
+                                                {% endif %}
+                                            {% endfor %}
+                                            {% for total_id, total_price in price_list.items  %}
+                                                {% if total_id == history_detail.id %}
+                                                    <td>{{ total_price }}</td>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                         <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Customers Data</h6>
+                        </div>
+
+                         <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-lg-6 col-md-6">
+                                    <h5 class="mt-3">Name</h5>
+                                    <div class="card w-100 align-items-center" style="margin-left:10px;">
+                                        <div class="card-body">
+                                             <h6 class="card-title">{{ history_detail.name }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="col-12 col-lg-6 col-md-6">
+                                    <h5 class="mt-3">Eamil</h5>
+                                    <div class="card w-100 align-items-center" style="margin-left:10px;">
+                                        <div class="card-body">
+                                             <h6 class="card-title">{{ history_detail.email }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-lg-6 col-md-6">
+                                    <h5 class="mt-3">Address</h5>
+                                    <div class="card w-100 align-items-center" style="margin-left:10px;">
+                                        <div class="card-body">
+                                             <h6 class="card-title">{{ history_detail.address }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6">
+                                    <h5 class="mt-3">City</h5>
+                                    <div class="card w-100 align-items-center" style="margin-left:10px;">
+                                        <div class="card-body">
+                                             <h6 class="card-title">{{ history_detail.city }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-lg-6 col-md-6">
+                                    <h5 class="mt-3">Hot Line </h5>
+                                    <div class="card w-100 align-items-center" style="margin-left:10px;">
+                                        <div class="card-body">
+                                             <h6 class="card-title">{{ history_detail.phone }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-md-6">
+                                    <h5 class="mt-3">Payment </h5>
+                                    <div class="card w-100 align-items-center" style="margin-left:10px;">
+                                        <div class="card-body">
+                                             <h6 class="card-title">{{ history_detail.payment_method }}<img src="img/undraw_profile_2.svg" width="100px" height="50px"></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if history_detail.payment_method != 'cash_on_delivery' %}
+                            <div class="row">
+                                <div class="col-12 col-lg-6 col-md-6">
+                                    <h5 class="mt-3">Card No </h5>
+                                    <div class="card w-100 align-items-center" style="margin-left:10px;">
+                                        <div class="card-body">
+                                             <h6 class="card-title">{{ history_detail.card_no }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 col-md-3">
+                                    <h5 class="mt-3">CVV NO </h5>
+                                    <div class="card w-100 align-items-center" style="margin-left:10px;">
+                                        <div class="card-body">
+                                             <h6 class="card-title">{{ history_detail.cvv_no }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3 col-md-3">
+                                    <h5 class="mt-3">Card Expiry </h5>
+                                    <div class="card w-100 align-items-center" style="margin-left:10px;">
+                                        <div class="card-body">
+                                             <h6 class="card-title">{{ history_detail.card_exp_date }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <button class="btn btn-primary" type="button">
+                             Back
+                        </button>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 align-items-center">
+                        <a href="{% url 'save_to_history' history_detail.id %}" class="btn btn-primary" type="button">
+                        Deliver 
+                        </a>
+                    </div>
+                </div>
+                  
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+   
+
+</body>
+
+</html>
+{% endblock %}

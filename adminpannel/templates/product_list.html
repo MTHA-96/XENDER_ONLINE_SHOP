@@ -1,0 +1,137 @@
+{% extends 'main.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+{% block body_block %}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="h4">
+                        <h4 class="h4">Product Lists</h4>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Categories</th>
+                                            <th>Sub_categories</th>
+                                            <th>Date</th>
+                                            <th>Options</th>
+                                            <!-- th>Discount</th>
+                                            <th>Options</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for products in productList%}
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td><img src="/{{ products.image }}" width="50px" height="50px" class="img-fluid"></td>
+                                            <td>{{ products.name }}</td>
+                                            {% for catego in products.catego.all %}
+                                            <td>{{ catego.name}}</td>
+                                            {% endfor%}
+                                            {% for subcatego in products.subcatego.all %}
+                                            <td>{{ subcatego.name}}</td>
+                                            {% endfor%}
+                                            <td>{{ products.date }}</td>
+                                            <td>
+                                                <a href="{% url 'product_update' products.id %}">Edit</a>
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal{{ products.id }}">
+                                                  Launch static backdrop modal
+                                                </button>
+                                                <!-- DELETE ALERT Modal -->
+                                                    <div class="modal fade" id="deleteModal{{ products.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                      <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                          <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">DO YOU REALLY WANT TO DELETE THIS PRODUCT</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                          </div>
+                                                          <div class="modal-body">
+                                                            ...
+                                                          </div>
+                                                          <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                                            <form method="POST" action="/administrator/{{ products.id }}/product_delete/">
+                                                                {% csrf_token  %}
+                                                                <input type="submit" class="btn btn-danger" value="Delete">
+                                                            </form>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+
+                                                <a href="{% url 'product_detail' pk=products.id %}">Detail</a>
+                                            </td>
+                                            <!-- <td>30%</td>
+                                            <td>V</td> -->
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    
+
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+{% endblock %}
+</html>

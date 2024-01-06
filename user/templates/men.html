@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block body_block %}
+    <div class="container empty_div"></div><!-- empty div -->
+
+    <section id="m_sec_1">
+        {% for adv_data in adv_list %}
+        {% for adv_category in adv_data.category.all %}
+        {% for adv_subcategory in adv_data.sub_category.all %}
+        {% if adv_category.name == 'billboards' and adv_subcategory.name == 'men_billboards'  %}
+        {% if adv_data.adv_id == 1 %}
+        <div id="m-sec-1" class="container-fluid" style="background-image: url({% static 'images/logo/backgroundimages/4_menbackground.jpg' %});">
+            <div class="container" style="background-image: url('/{{ adv_data.image }}');">
+                <div class="row">
+                    <div class="col-6 col-md-8 col-lg-8"><!--empyt div --></div>
+                    <div id="adv-1" class="col-6 col-md-4 col-lg-4" style="background-color: rgba(51, 102, 147, 0.501);">
+                        <h2 id="h-1" class="h2 text-center my-4 fw-bold">{{ adv_data.first_caption}}</h2>
+                        <h2 id="h-2" class="h2 text-center my-2 fw-bold">{{ adv_data.second_caption}}</h2>
+                        <i id="line" class="p text-center my-5 fw-bold fw-bold">______</i>
+                        <h1 id="h-3" class="h2 text-center my-3 fw-bold">{{ adv_data.third_caption}}</h1>
+                        <h1 id="h4" class="h2 text-center my-3 fw-bold">{{ adv_data.fourth_caption}}</h1>
+                        <p id="p-1" class="p text-center my-3 fw-bold">_{{ adv_data.fifth_caption}}_</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+        {% endfor %}
+    </section><!--first section-->
+    <section id="m_sec_1">
+        <div id="m-sec-1" class="container">
+            <div>
+                <h2 class="text-left my-5" id="men_h_1">SHIRTS</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% for product_data in men_product_list %}
+                {% for category in product_data.catego.all %}
+                {% for subcategory in product_data.subcatego.all %}
+                {% if category.name == 'men' %}
+                {% if subcategory.name == 'men_shirts' %}
+                <div class="col-6 col-lg-2 col-md-4 col-sm-6">
+                    <div class="product-box">
+                        <div class="product-inner-box position-relative">
+                            <div class="icons position-absolute">
+                                <a href="#" class="text-decoration-none text-dark"></a>
+                                <a href="#" class="text-decoration-none text-dark"></a>
+                            </div>
+                            <div class="onsale">
+                                <span class="badge rounded-0">{{product_data.discount}}%</span>
+                            </div>
+                            <img src="/{{ product_data.image }}" alt="blah balh" class="img-fluid">
+
+                            <div class="cart-btn">
+                                <a href="{% url 'detail' product_data.id %}" class="btn btn-warning shadow-sm rounded-pill">Add to card</a>
+                            </div>
+                            <div class="product_info">
+                                <div class="product_name">
+                                    <h3>{{ product_data.name }}</h3>
+                                </div>
+                                <div class="product_price">
+                                    $<span>{{ product_data.new_price}}</span>/<del>$<span>{{ product_data.old_price}}</span></del>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                {% endfor %}
+
+              
+            </div>
+        </div>
+    </section>
+    <section id="m_sec_2" class="bg-secondary">
+        <div id="m-sec-2" class="container">
+            <div>
+                <h2 class="text-left my-5" id="main_h_4">PANTS</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% for product_data in men_product_list %}
+                {% for category in product_data.catego.all %}
+                {% for subcategory in product_data.subcatego.all %}
+                {% if category.name == 'men' %}
+                {% if subcategory.name == 'men_pants' %}
+                <div class="col-6 col-lg-2 col-md-4 col-sm-6">
+                    <div class="product-box">
+                        <div class="product-inner-box position-relative">
+                            <div class="icons position-absolute">
+                                <a href="#" class="text-decoration-none text-dark">v</a>
+                                <a href="#" class="text-decoration-none text-dark">e</a>
+                            </div>
+                            <div class="onsale">
+                                <span class="badge rounded-0">{{ product_data.discount}}%</span>
+                            </div>
+                            <img src="/{{ product_data.image}}" alt="{{ product_data.name }} photo" class="img-fluid">
+
+                            <div class="cart-btn">
+                                <a href="{% url 'detail' product_data.id %}" class="btn btn-warning shadow-sm rounded-pill">Add to card</a>
+                            </div>
+                            <div class="product_info">
+                                <div class="product_name">
+                                    <h3>{{ product_data.name}}</h3>
+                                </div>
+                                <div class="product_price">
+                                    $<span>{{ product_data.new_price}}</span>/<del>$<span>{{ product_data.old_price}}</span></del>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <section id="m_sec_3">
+        <div id="m-sec-3" class="container">
+            <div>
+                <h2 class="text-left my-5" id="main_h_3">UNDERWARE</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% for product_data in men_product_list %}
+                {% for category in product_data.catego.all %}
+                {% for subcategory in product_data.subcatego.all %}
+                {% if category.name == 'men' %}
+                {% if subcategory.name == 'men_underwares' %}
+                <div class="col-6 col-lg-2 col-md-4 col-sm-6">
+                    <div class="product-box">
+                        <div class="product-inner-box position-relative">
+                            <div class="icons position-absolute">
+                                <a href="#" class="text-decoration-none text-dark">v</a>
+                                <a href="#" class="text-decoration-none text-dark">e</a>
+                            </div>
+                            <div class="onsale">
+                                <span class="badge rounded-0">{{product_data.discount}}%</span>
+                            </div>
+                            <img src="/{{ product_data.image }}" alt="blah balh" class="img-fluid">
+
+                            <div class="cart-btn">
+                                <a href="{% url 'detail' product_data.id %}" class="btn btn-warning shadow-sm rounded-pill">Add to card</a>
+                            </div>
+                            <div class="product_info">
+                                <div class="product_name">
+                                    <h3>{{ product_data.name }}</h3>
+                                </div>
+                                <div class="product_price">
+                                    $<span>{{ product_data.new_price}}</span>/<del>$<span>{{ product_data.old_price}}</span></del>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                {% endfor %}
+
+              
+            </div>
+        </div>
+    </section>
+    <section id="m_sec_4" class="bg-secondary" >
+        <div id="m-sec-4" class="container">
+            <div>
+                <h2 class="text-left my-5" id="main_h_4">SHOES</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% for product_data in men_product_list %}
+                {% for category in product_data.catego.all %}
+                {% for subcategory in product_data.subcatego.all %}
+                {% if category.name == 'men' %}
+                {% if subcategory.name == 'men_shoes' %}
+                <div class="col-6 col-lg-2 col-md-4 col-sm-6">
+                    <div class="product-box">
+                        <div class="product-inner-box position-relative">
+                            <div class="icons position-absolute">
+                                <a href="#" class="text-decoration-none text-dark">v</a>
+                                <a href="#" class="text-decoration-none text-dark">e</a>
+                            </div>
+                            <div class="onsale">
+                                <span class="badge rounded-0">{{product_data.discount}}%</span>
+                            </div>
+                            <img src="/{{ product_data.image }}" alt="blah balh" class="img-fluid">
+
+                            <div class="cart-btn">
+                                <a href="{% url 'detail' product_data.id %}" class="btn btn-warning shadow-sm rounded-pill">Add to card</a>
+                            </div>
+                            <div class="product_info">
+                                <div class="product_name">
+                                    <h3>{{ product_data.name }}</h3>
+                                </div>
+                                <div class="product_price">
+                                    $<span>{{ product_data.new_price}}</span>/<del>$<span>{{ product_data.old_price}}</span></del>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                {% endfor %}
+
+              
+            </div>
+        </div>
+    </section>
+    <script src="{% static '/scripts/product_card.js' %}"></script>
+    {% endblock %}
+
+    
+</body>
+</html>

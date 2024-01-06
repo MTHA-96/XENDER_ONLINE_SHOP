@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<body>
+      
+  
+    <div class="container empty_div"></div><!-- empty div -->
+
+          
+    <section>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-4 ">
+                    <div class="card justify-content-center lg-w-50 w-100 my-5">
+                        <div class="card-body">
+                            <div class="row w-100">
+                                <div class="d-flex justify-content-center mb-3">
+                                <img src="{% static '/images/logo/login.jpg' %}" width="100px" height="100px" style="border-radius:50%;"/>
+                                </div>
+                                
+                                 <form class="form-floating login-form" method="post" action="/user/usersignup/">
+                                    {% csrf_token %}
+
+                                   {% if error_mail %}
+                                    <div class="alert alert-danger" role="alert">
+                                        <h3>{{ message }}</h3>
+                                    </div>
+                                    {% endif %}
+
+
+                                   {% if error_pass %}
+                                    <div class="alert alert-danger" role="alert">
+                                        <h3>{{ message }}</h3>
+                                    </div>
+                                    {% endif %}
+
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-floating mb-5  px-3 ">
+                                                <input type="text" name="fstname" class="form-control" id="floatingInput">
+                                                <label for="floatingInput" class="ms-3">First Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                        <div class="form-floating mb-5  px-3">
+                                            <input type="text" name="lstname" class="form-control" id="floatingInput">
+                                            <label for="floatingInput" class="ms-3">Last Name</label>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-floating mt-5  px-3">
+                                                <input type="email" name="mail" class="form-control" id="floatingPassword">
+                                                <label for="floatingPassword" class="ms-3"> Email</label>
+                                              </div>
+                                        </div>
+                                    </div>
+                                    <div class="row my-5">
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-floating mb-5  px-3 ">
+                                                <input type="password" name="first_password" class="form-control" id="floatingPassword" placeholder="Enter your password" >
+                                                <label for="floatingPassword" class="ms-3">Password</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                        <div class="form-floating mb-5  px-3">
+                                            <input type="password" name="second_password" class="form-control" id="floatingInput">
+                                            <label for="floatingInput" class="ms-3">RetypePassword</label>
+                                        </div>
+                                        </div>
+                                    </div>
+                                     
+                                      <div class="form-floating mt-5 px-3 ">
+                                        <input type="submit" class="form-control btn btn-outline-warning button-login "  value="SignUp">
+                                      </div>
+                                </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    {% endblock %}
+
+    
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block body_block %}
+    <div class="container empty_div"></div><!-- empty div -->
+
+   
+    <section id="m_sec_1">
+        <div id="m-sec-1" class="container">
+            <div>
+                <h2 class="text-left my-5" id="men_h_1"></h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% if search_by_subcategory == True %}
+                {% for product_data in products %}
+                {% for items_list in product_data %}
+                <div class="col-6 col-lg-2 col-md-4 col-sm-6">
+                    <div class="product-box">
+                        <div class="product-inner-box position-relative">
+                            <div class="icons position-absolute">
+                                <a href="#" class="text-decoration-none text-dark"></a>
+                                <a href="#" class="text-decoration-none text-dark"></a>
+                            </div>
+                            <div class="onsale">
+                                <span class="badge rounded-0">{{items_list.discount}}%</span>
+                            </div>
+                            <img src="/{{ items_list.image }}" alt="blah balh" class="img-fluid">
+
+                            <div class="cart-btn">
+                                <a href="{% url 'detail' items_list.id %}" class="btn btn-warning shadow-sm rounded-pill">Add to card</a>
+                            </div>
+                            <div class="product_info">
+                                <div class="product_name">
+                                    <h3>{{ items_list.name }}</h3>
+                                </div>
+                                <div class="product_price">
+                                    $<span>{{ items_list.new_price}}</span>/<del>$<span>{{ items_list.old_price}}</span></del>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endfor %}
+                {% endif %}
+                {% if search_by_subcategory == False %}
+                        <div class="card text-center">
+                  <div class="card-header">
+                    
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">{{ text }}</h5>
+
+                    <a href="#" class="btn btn-primary" onclick ="history.back()">Go Back</a>
+                  </div>
+                  <div class="card-footer text-body-secondary">
+                    
+                  </div>
+                </div>
+                {% endif %}
+
+              
+            </div>
+        </div>
+    </section>
+
+  
+
+              
+<script src="{% static '/scripts/product_card.js' %}"></script>
+    {% endblock %}
+
+    
+</body>
+</html>

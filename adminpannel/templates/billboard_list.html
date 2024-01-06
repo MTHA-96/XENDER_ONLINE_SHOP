@@ -1,0 +1,138 @@
+{% extends 'main.html'%}
+{% load static %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="h4">
+                        <h4 class="h4">Billboards Lists</h4>
+                    </div>
+
+                    <div class="container-fluid lg-mx-5 ps-5 my-5  justify-content-center">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>NO</th>
+                                                <th>Image</th>
+                                                <th>Adv_id</th>
+                                                <th>Caption One</th>
+                                                <th>Caption Two</th>
+                                                <th>Date</th>
+                                                <th>Options</th>
+                                                <!-- th>Discount</th>
+                                                <th>Options</th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for adv in advertisement_list %}
+                                            <tr>
+                                                <td>{{ forloop.counter }}</td>
+                                                <td><img src="/{{ adv.image }}" width="50px" height="50px" class="img-fluid"></td>
+                                                <td>{{ adv.adv_id }}</td>
+                                                <td>{{ adv.first_caption }}</td>
+                                                <td>{{ adv.second_caption }}</td>
+                                                <td>{{ adv.date_update }}</td>
+                                                <td> 
+                                                    <a href="{% url 'advertisement_detail' pk=adv.id %}">Detail</a>
+                                                    <a href="{% url 'advertisement_update' adv.id %}">Update</a>
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal{{ adv.id }}">
+                                                  Delete
+                                                    </button>
+                                                <!-- DELETE ALERT Modal -->
+                                                    <div class="modal fade" id="deleteModal{{ adv.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                      <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                          <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">DO YOU REALLY WANT TO DELETE THIS ITEM</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                          </div>
+                                                          <div class="modal-body">
+                                                            ...
+                                                          </div>
+                                                          <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                                            <form method="POST" action="/administrator/{{ adv.id }}/advertisement_delete/">
+                                                                {% csrf_token  %}
+                                                                <input type="submit" class="btn btn-danger" value="Delete">
+                                                            </form>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
+
+{% endblock %}

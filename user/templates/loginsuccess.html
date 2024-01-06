@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+
+    <div class="container empty_div"></div><!-- empty div -->
+
+ 
+
+    <section>
+       <div class="container-fluid">
+         <div class="row">
+            <div class="col-12 d-flex justify-content-center mt-5 py-3">
+                <div class="card justify-content-center success" style="width:500px; height: 500px; background-color: rgb(53, 37, 118);">
+                    <div class="card-body justify-content-center">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <img src="static/images/logo/1_successful.gif" width="300px" height="250px"/>
+                            </div>
+                            <div class="col-12 success_text">
+                                <h2 >Welcome</h2>
+                                <h3 class="mt-5">{{ message }}</h3>
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <a href="index.html" class="btn btn-dark ">OK</a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+
+           
+            
+        </div>
+       </div>
+        
+    </section><!--success section-->
+    {% endblock %}
+</html>

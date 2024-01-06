@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+      
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block body_block %}
+    <!-- this is the navbar part -->
+
+    <div class="container empty_div"></div><!-- empty div -->
+
+   <section>
+        <div class="container-fluid py-5">
+            <div class="container">
+                <h1 class="h1 text-center">About Us</h1>
+            </div>
+        </div>
+        <div id="about" class="container pb-5">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                   <div class="card w-100">  
+                        <p class="p py-5 px-5">
+                            <i>"</i>Welcome to our world. We’re DIVAS WORLD; the brand taking over your social media feeds with our killer looks and next-level aesthetic that’ll have you double tapping. We believe style should be accessible to all, whatever your budget, as we deliver product inspired from the catwalk and the coolest muses of the moment. Our girl knows she can trust in us for everything she needs from the latest trend-led pieces to celebrity inspired looks, to the everyday wardrobe staples and that ultimate party piece. We have gone beyond offering just clothing to become a store offering Fashion, Home Decor, Disney Character and many more. We are more than just a brand. We aim to inspire confidence in our customers when it comes to how they dress and present themselves to the world, endeavoring to build a community of #DIVASWORLDFAMILY. A movement towards body positivity, equality and all round feeling yo’self regardless of body type, race or gender. Come check out what you want and feel like a DIVA!!
+
+                            We’re the leading go-to online etailer for Women’s Fashion. We supply a wide range of Ladies Dresses, Skirts, Tops, Jumpsuits, Jeans, Trousers, Blazers, Coats and Jackets.
+
+                            How to order
+
+                            Ordering from us couldn’t be easier either - you can register for an online account to shop online with fast delivery worldwide. With a choice of fast-tracked delivery options to the UK, Europe, USA and the rest of the World, you can have your items delivered in no time. Full instructions on how to order can be found here.
+
+                            For frequently asked questions please click here and if you have any questions about placing your first order or an order you have placed please feel free to contact us here.<i>"</i>
+
+                        </p>
+                   </div>
+                </div>   
+            </div>
+        </div>
+   </section><!--first section-->
+
+   <section>
+        <div class="container-fluid py-5 bg-secondary">
+            <div class="container">
+                <h1 class="h1 d-flex justify-content-center">Our Services</h1>
+            </div>
+            <div id="services" class="container">
+                <div class="row">
+                    <div class="card d-flex justify-content-center w-100">
+                        <ul>
+                            <li>We make food with clean and good health.Costumer can offer many delicious foods and myanmar traditional cusine.Our customer can offer drink like coffee and jucie. </li>
+                            <li>We make food with clean and good health.Costumer can offer many delicious foods and myanmar traditional cusine.Our customer can offer drink like coffee and jucie. </li>
+                            <li>We make food with clean and good health.Costumer can offer many delicious foods and myanmar traditional cusine.Our customer can offer drink like coffee and jucie. </li>
+                            <li>We make food with clean and good health.Costumer can offer many delicious foods and myanmar traditional cusine.Our customer can offer drink like coffee and jucie. </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </section><!-- second section-->
+
+   <section>
+        <div class="container">
+             {% for adv_data in adv_list %}
+             {% for category in adv_data.category.all %}
+             {% for subcategory in adv_data.sub_categry.all %}
+            <div class="row py-5">
+                <div class="col-md-6">
+                    {% if category.name == 'partners' %}
+                    <table class="table">
+                        <tr>
+                            <h3>Our parteners</h3>
+                            <h4 style="color: #f0f0f0;">....</h4>
+                        </tr>
+                         <tr>
+                            {% if adv_data.adv_id == 1 %}
+                            <td><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                            {% if adv_data.adv_id == 1 %}
+                            <td id="pt-td-2"><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            {% if adv_data.adv_id == 1 %}
+                            <td><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                            {% if adv_data.adv_id == 1 %}
+                            <td><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            {% if adv_data.adv_id == 1 %}
+                            <td><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                            {% if adv_data.adv_id == 1 %}
+                            <td><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                        </tr>
+                    </table>
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                   
+                    {% if category.name == 'payment_methods'%}
+                    <table class="table">
+                        <tr>
+                            <h3>Payment Methods</h3>
+                            <h4>You Can use any of these Payment Methods.</h4>
+                        </tr>
+                        <tr>
+                            {% if adv_data.adv_id == 1 %}
+                            <td><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                            {% if adv_data.adv_id == 2 %}
+                            <td><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            {% if adv_data.adv_id == 3 %}
+                            <td><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                            {% if adv_data.adv_id == 4 %}
+                            <td><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            {% if adv_data.adv_id == 5 %}
+                            <td><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                            {% if adv_data.adv_id == 6 %}
+                            <td><img class="img-thumbnail" src="{{ adv_data.image }}" width="100px" height="auto"></td>
+                            {% endif %}
+                        </tr>
+                    </table>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+   </section><!-- third section -->
+   
+
+    
+    
+
+
+
+
+    {% endblock %}
+    
+
+
+    
+</body>
+</html>

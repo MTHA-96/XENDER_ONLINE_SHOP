@@ -1,0 +1,91 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="h4">
+                        <h4 class="h4">Order Lists</h4>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Order Customer list</h6>
+                            <form method="post"  action="/administrator/delete_history_withdate/" class="d-flex justify-content-end gx-5">
+                                {% csrf_token %}
+                                <input type="date" class="form-control gx-10" style="width:200px"  name="startdate">
+                                <input type="date" class="form-control gx-10" style="width:200px" name="enddate">
+                                <button type="confirm" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>Buyer Name</th>
+                                            <th>Email</th>
+                                            <th>Order Date</th>
+                                            <th>Units</th>
+                                            <th>Payment Method</th>
+                                            <th>Options</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for user_history in order_customer_history %}
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>{{ user_history.name }}</td>
+                                            <td>{{ user_history.email }}</td>
+                                            <td>{{ user_history.splitdate }}</td>
+                                            {% for total_id, total_quan in quan_list.items  %}
+                                                {% if total_id == user_history.id %}
+                                                    <td>{{ total_quan }}</td>
+                                                {% endif %}
+                                            {% endfor %}
+                                            <td>{{ user_history.payment_method }}</td>
+                                            <td>
+                                                <a href="{% url 'history_detail' pk=user_history.id %}" class="btn btn-success">Detail Invoice</a>
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ user_history.id }}">
+                                                  Delete
+                                                </button>
+                                                <!-- DELETE ALERT Modal -->
+                                                    <div class="modal fade" id="deleteModal{{ user_history.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                      <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                          <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">DO YOU REALLY WANT TO DELETE THIS SOLD OUT LIST</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                          </div>
+                                                          <div class="modal-body">
+                                                            ...
+                                                          </div>
+                                                          <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                                            <form method="POST" action="/administrator/{{ user_history.id }}/history_delete/">
+                                                                {% csrf_token  %}
+                                                                <input type="submit" class="btn btn-danger" value="Delete">
+                                                            </form>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                            </td>    
+                                        </tr> 
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+        
+</body>
+</html>
+{% endblock %}
